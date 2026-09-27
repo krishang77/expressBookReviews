@@ -33,6 +33,9 @@ authenticated_users.post("/login", (req, res) => {
       expiresIn: "1h",
     }
   );
+  req.session.authorization = {
+  accessToken: accessToken,
+};
 
   return res.status(200).json({
     message: "Login successful",
